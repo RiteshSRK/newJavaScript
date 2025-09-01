@@ -87,8 +87,49 @@ const add = (a, b) => {
 };
 ```
 
-👉 Agar function single line return hai, to return aur {} dono hata sakte ho:
+👉 Agar function single line `return` hai, to `return` aur `{}` dono hata sakte ho:
 
 ```js
 const add = (a, b) => a + b;
 ```
+
+## 🔹 Characteristics of Arrow Functions
+
+- Shorter syntax – Compact aur readable.
+
+- No `this` binding – Arrow function apna khud ka `this` nahi banata,
+balki **parent scope ka `this` use karta hai**.
+
+- Not hoisted – Ye function expression jaisa hi behave karta hai.
+Matlab, declaration se pehle use nahi kar sakte.
+
+- No `arguments` object – Normal function ke paas `arguments` object hota hai, arrow ke paas nahi.
+
+- Best use – Callbacks, array methods, short utility functions.
+
+## All Types of Arrow Functions in JavaScript
+
+| Type                            | Syntax                         | Example                                                                                      | Output                  |
+| ------------------------------- | ------------------------------ | -------------------------------------------------------------------------------------------- | ----------------------- |
+| **No Parameter**                | `() => expression`             | `js const greet = () => "Hello!"; console.log(greet()); `                                    | `Hello!`                |
+| **Single Parameter**            | `param => expression`          | `js const square = x => x * x; console.log(square(4)); `                                     | `16`                    |
+| **Multiple Parameters**         | `(a, b) => expression`         | `js const add = (a, b) => a + b; console.log(add(2, 3)); `                                   | `5`                     |
+| **Block Body (with return)**    | `(a, b) => { return a * b; }`  | `js const mul = (a, b) => { return a * b; }; console.log(mul(2, 3)); `                       | `6`                     |
+| **No Return (void)**            | `() => { statement }`          | `js const log = () => { console.log("Hi!"); }; log(); `                                      | `Hi!`                   |
+| **Returning Object**            | `() => ({ key: value })`       | `js const getObj = () => ({ name: "Ritesh" }); console.log(getObj()); `                      | `{ name: "Ritesh" }`    |
+| **Default Parameters**          | `(a=1, b=2) => a + b`          | `js const sum = (a=1, b=2) => a + b; console.log(sum()); `                                   | `3`                     |
+| **Rest Parameters**             | `(...args) => {}`              | `js const total = (...nums) => nums.reduce((a, b) => a + b, 0); console.log(total(1,2,3)); ` | `6`                     |
+| **Nested Arrow Function**       | `() => () => value`            | `js const outer = () => () => "Nested!"; console.log(outer()()); `                           | `Nested!`               |
+| **With `this` (lexical scope)** | `() => { console.log(this); }` | `js const obj = { name:"RK", show: () => console.log(this) }; obj.show(); `                  | Global `this` (not obj) |
+
+---
+
+| Type                              | Syntax Example                              | Description                                            |
+| --------------------------------- | ------------------------------------------- | ------------------------------------------------------ |
+| **No Parameter**                  | `const greet = () => console.log("Hello");` | Used when there are no parameters.                     |
+| **Single Parameter**              | `const square = x => x * x;`                | For one parameter, parentheses are optional.           |
+| **Multiple Parameters**           | `const add = (a, b) => a + b;`              | For two or more parameters, parentheses are required.  |
+| **Single-line (Implicit return)** | `const sum = (a, b) => a + b;`              | No need to write `{}` and `return` (automatic return). |
+| **Multi-line (Explicit return)**  | `const calc = (a, b) => { return a + b; };` | Use `{}` and `return` for multi-line logic.            |
+| **Returning Object**              | `const obj = () => ({ name: "Ritesh" });`   | Wrap the object in parentheses to return it correctly. |
+| **As a Callback**                 | `arr.forEach(n => console.log(n));`         | Common in array methods or event listeners.            |
