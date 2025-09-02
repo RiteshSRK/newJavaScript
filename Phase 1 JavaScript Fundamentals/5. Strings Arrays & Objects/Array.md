@@ -1,5 +1,7 @@
 # Array in Java Script
-> Array is a special type of object **used to store multiple values in a single variable.** Arrays can hold any type of data, including `numbers`, `strings`, `objects`, and even `other arrays`.
+> Array is a special type of object **used to store multiple values in a single variable.** 
+
+>Arrays can hold any type of data, including `numbers`, `strings`, `objects`, and even `other arrays`.
 
 ## Creating an Array
 > Create an array using either the **array literal** syntax or the Array constructor.
