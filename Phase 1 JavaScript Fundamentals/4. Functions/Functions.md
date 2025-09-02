@@ -133,3 +133,177 @@ Matlab, declaration se pehle use nahi kar sakte.
 | **Multi-line (Explicit return)**  | `const calc = (a, b) => { return a + b; };` | Use `{}` and `return` for multi-line logic.            |
 | **Returning Object**              | `const obj = () => ({ name: "Ritesh" });`   | Wrap the object in parentheses to return it correctly. |
 | **As a Callback**                 | `arr.forEach(n => console.log(n));`         | Common in array methods or event listeners.            |
+
+---
+
+## 💎 Function  Parameters:
+> A parameter is a **variables** inside function definition.
+
+## 💎 Function Arguments:
+> Arguments are actual values passed to function, when calling.
+
+```js
+// Parameter - variable in the function definition
+function greet(name) { // 'name' is a parameter
+    console.log(`Hello, ${name}!`);
+}
+
+// Argument - actual value passed to the function
+greet('Alice'); // 'Alice' is an argument
+```
+
+## 💎 Default Parameters in JavaScript
+> Default parameters allow user to set a **default value** for a function parameter.
+
+```js
+function multiply(a, b = 2) {  // b has default value
+  return a * b;
+}
+
+console.log(multiply(5));    // Argument only for a → Output: 10
+console.log(multiply(5, 3)); // Both arguments → Output: 15
+```
+
+```js
+function greet(name = "Guest") {
+  console.log("Hello " + name);
+}
+
+greet("Ritesh"); // Hello Ritesh
+greet();         // Hello Guest  (default value used)
+```
+
+## Rest Parameters:
+> It collects multiple arguments into a single array.
+
+```js
+function showNames(...names) {
+  console.log(names);
+}
+
+showNames("Ritesh", "Aman", "Pooja");
+// Output: ["Ritesh", "Aman", "Pooja"]
+```
+
+```js
+function sumAll(...numbers) {
+  return numbers.reduce((total, n) => total + n, 0);
+}
+
+console.log(sumAll(1, 2, 3, 4, 5)); // 15
+```
+
+## Return Statement:
+> The return statement in JavaScript is used to stop a function and **send a value back** to where the function was called.
+
+```js
+function add(a, b) {
+  return a + b;
+}
+
+const result = add(5, 3);
+console.log(result); // 8
+```
+
+## 🔥 Scope in JavaScript
+
+> Scope decides where a variable can be accessed in your program.
+
+> Scope determines the accessibility (visibility) of variables
+
+### 🔹 1. Global Scope
+
+> Variables declared outside any function or block have global scope.
+
+
+```js
+var globalVar = "I am Global";
+
+function show() {
+  console.log(globalVar); // Accessible
+}
+
+console.log(globalVar);   // Accessible
+```
+
+### 🔹 2. Function Scope (Local Scope)
+
+> Variables declared inside a function are only accessible within that function.
+
+```js
+function test() {
+  var localVar = "Inside Function";
+  console.log(localVar); // Accessible
+}
+
+test();
+console.log(localVar); // ❌ Error
+```
+
+### 🔹 3. Block Scope (ES6+)
+
+> Variables declared with `let` and `const` inside blocks `{}` are block-scoped.
+
+```js
+{
+  let a = 10;
+  const b = 20;
+  var c = 30;
+}
+
+console.log(c); // ✅ Works (var not block-scoped)
+console.log(a); // ❌ Error
+console.log(b); // ❌ Error
+```
+
+```js
+function demo() {
+  if (true) {
+    const inner = "Block Scoped";
+    console.log(inner); // Works
+  }
+  // console.log(inner); // ❌ Error
+}
+```
+
+## IIFE (Immediately Invoked Function Expression)
+
+> defined and executed immediately
+
+> use for **Avoid Global Scope Pollution**
+
+```js
+(function() {
+  console.log("IIFE Running!");
+})();
+```
+
+- `(function() { ... })` → function expression
+
+- `()` → immediately invoke
+
+### 🔹 Arrow Function IIFE
+
+```js
+(() => {
+  console.log("Arrow IIFE Running!");
+})();
+```
+
+### 🔹 With Parameters
+
+```js
+(function(name) {
+  console.log("Hello " + name); //  Hello Ritesh
+})("Ritesh");
+```
+
+### Using with async/await (Modern Use)
+
+```js
+(async () => {
+  const data = await fetch("https://jsonplaceholder.typicode.com/posts/1");
+  const res = await data.json();
+  console.log(res);
+})();
+```
