@@ -383,3 +383,122 @@ document.getElementById("child").addEventListener("click", (e) => {
 `addEventListener("click", handler, true)` → Capturing phase
 
 `addEventListener("click", handler, false)` (default) → Bubbling phase.
+
+<br>
+<br>
+
+---
+
+# Forms Handling in JavaScript — Interview Notes
+
+## Forms in JavaScript
+
+- A form is used to collect user input (`<form>`, `<input>`, `<textarea>`, `<select>`, etc.).
+
+- JavaScript allows us to **handle submissions**, **validate data**, and **send** it to **backend**.
+
+👉 Interview Line: “Forms use to collect data from users, and helps control how this data is submitted and processed.
+
+## Modern Way — `FormData`
+
+`FormData` automatically collects key-value pairs from a form.
+
+```js
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const formData = new FormData(form);
+
+  // Get values
+  console.log(formData.get("name"));
+  console.log(formData.get("email"));
+
+  // Loop through all fields
+  for (let [key, value] of formData.entries()) {
+    console.log(key, ":", value);
+  }
+});
+```
+
+### 👉 Benefits of FormData:
+
+- Easy handling of large forms.
+
+- Works with file uploads.
+
+- Directly usable with `fetch()` for **AJAX**.
+
+## Sending Form Data with Fetch API
+
+```js
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const formData = new FormData(form);
+
+  let response = await fetch("/submit", {
+    method: "POST",
+    body: formData, // directly send FormData
+  });
+
+  let result = await response.json();
+  console.log("Server Response:", result);
+});
+```
+
+## Validating Form Data
+
+```js
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const name = form.querySelector("#name").value;
+  const email = form.querySelector("#email").value;
+
+  if (!name || !email) {
+    alert("All fields are required!");
+    return;
+  }
+
+  console.log("Form is valid!");
+});
+```
+
+## Example: Full Form Handling
+
+```js
+<form id="myForm">
+  <input type="text" name="name" placeholder="Enter name" required />
+  <input type="email" name="email" placeholder="Enter email" required />
+  <button type="submit">Submit</button>
+</form>
+
+<script>
+  const form = document.querySelector("#myForm");
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault(); // stop refresh
+
+    const formData = new FormData(form);
+
+    // Validation
+    if (!formData.get("name") || !formData.get("email")) {
+      alert("Please fill all fields");
+      return;
+    }
+
+    // Log all fields
+    for (let [key, value] of formData.entries()) {
+      console.log(key + ": " + value);
+    }
+
+    // Send data to server
+    fetch("/submit", {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((data) => console.log("Server says:", data));
+  });
+</script>
+```
