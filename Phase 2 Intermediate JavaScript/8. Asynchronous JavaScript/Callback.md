@@ -127,7 +127,23 @@ console.log("End");
 
 ---
 
-## Callback Hell
+## Callback Hell Real Examplea:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Call back hell</title>
+</head>
+<body>
+    <h1>Apna College</h1>
+
+    <script src="05_callBackHell.js"></script>
+</body>
+</html>
+```
 
 ```js
 let h1 = document.querySelector('h1');
@@ -194,3 +210,14 @@ savetoDb("apnacollege",
     }
 );
 ```
+
+### Interview Notes
+
+#### Q: What is a callback function?
+> 👉 A callback is a function passed as an argument to another function and executed later, often after an asynchronous task.
+
+#### Q: Where are callbacks used in JavaScript?
+> 👉 Event listeners, setTimeout/setInterval, Array methods (`map`, `filter`, `forEach`), API calls, file handling, etc.
+
+#### Q: What is Callback Hell?
+> 👉 When multiple callbacks are nested inside each other, making code messy and hard to read.
