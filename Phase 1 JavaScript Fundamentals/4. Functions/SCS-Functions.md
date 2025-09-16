@@ -66,6 +66,16 @@ const add = (a, b) => {
 const add = (a, b) => a + b;
 ```
 
+| Type                              | Syntax Example                              | Description                                            |
+| --------------------------------- | ------------------------------------------- | ------------------------------------------------------ |
+| **No Parameter**                  | `const greet = () => console.log("Hello");` | Used when there are no parameters.                     |
+| **Single Parameter**              | `const square = x => x * x;`                | For one parameter, parentheses are optional.           |
+| **Multiple Parameters**           | `const add = (a, b) => a + b;`              | For two or more parameters, parentheses are required.  |
+| **Single-line (Implicit return)** | `const sum = (a, b) => a + b;`              | No need to write `{}` and `return` (automatic return). |
+| **Multi-line (Explicit return)**  | `const calc = (a, b) => { return a + b; };` | Use `{}` and `return` for multi-line logic.            |
+| **Returning Object**              | `const obj = () => ({ name: "Ritesh" });`   | Wrap the object in parentheses to return it correctly. |
+| **As a Callback**                 | `arr.forEach(n => console.log(n));`         | Common in array methods or event listeners.            |
+
 👉 Agar function single line `return` hai, to `return` aur `{}` dono hata sakte ho:
 
 ---
@@ -545,6 +555,12 @@ function sayHello() {
 
 - Function expressions are not fully hoisted.
 
+    - If declared with `var`: The variable is hoisted but set to `undefined`.
+
+    - If declared with `let` or `const`: They are in the **temporal dead zone (TDZ)** until initialized.
+
+
+✅ Example (with `var`):
 ```js
 sayHi();  // ❌ TypeError: sayHi is not a function
 
@@ -552,3 +568,14 @@ var sayHi = function() {
   console.log("Hi!");
 };
 ```
+👉 Only var sayHi is hoisted (set to undefined), but the function itself isn’t.
+
+✅ Example (with let or const):
+```js
+sayHi();  // ❌ ReferenceError: Cannot access 'sayHi' before initialization
+
+let sayHi = function() {
+  console.log("Hi!");
+};
+```
+👉 Variables declared with let and const are in the TDZ until execution reaches their definition.
