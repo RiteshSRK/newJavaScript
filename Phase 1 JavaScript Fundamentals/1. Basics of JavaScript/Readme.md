@@ -32,7 +32,7 @@
 
 - **Scope:** Function-scoped OR globally scoped if declared outside a function.
 
-- **Hoisting:** Hoisted to the top but initialized with `undefined`.
+- **Hoisting:** Hoisted to the top with `undefined` value.
 
 - **Re-declaration:** Allowed.
 
@@ -337,7 +337,25 @@ console.log(10 % 3);   // 1
 console.log(2 ** 4);   // 16
 ```
 
-### 2. Comparison Operators
+### 2. Assignment Operators
+
+> Assign values to variables.
+
+```js
+= // assigns value
++= // a += b => a = a + b
+-= // a -= b
+*=, /=, %=
+```
+
+👉 Example:
+
+```js
+let score = 5;
+score += 2; // score = 7
+```
+
+### 3. Comparison Operators
 
 > Used to compare two values.
 
@@ -356,7 +374,9 @@ console.log(5 === "5");  // false (type check also)
 console.log(5 !== "5");  // true
 ```
 
-### 3. Logical Operators
+---
+
+### 4. Logical Operators
 
 >Used for boolean logic.
 
@@ -377,7 +397,49 @@ console.log(true || false);  // true
 console.log(!false);         // true
 ```
 
-### 4. Nullish Coalescing (`??`)
+
+## 5. Ternary( conditional ) Operator (condition ? value1 : value2)
+
+- Short form of `if...else`.
+
+- Returns **one of two values** based on a **condition**.
+
+👉 Example:
+
+```js
+let age = 18;
+let canVote = (age >= 18) ? "Yes" : "No";
+console.log(canVote); // "Yes"
+```
+
+## 🎯 Interview-style Q&A
+
+### Q2. What is the ternary operator in JavaScript?
+> 👉 A shorthand if...else that evaluates a condition and returns one of two values.
+
+### Q3. Can we use multiple (nested) ternary operators?
+> 👉 Yes, but avoid too many levels because it reduces readability. Use if...else for complex conditions.
+
+
+## 6. Unary Operators
+> Used on a single operand.
+
+```js
++ // tries to convert to number
+- // negates
+++ // increment
+-- // decrement
+typeof // returns data type
+```
+
+```js
+let x = "5";
+console.log(+x); // 5 (converted to number)
+```
+
+---
+
+### 7. Nullish Coalescing (`??`)
 
 - Returns **right-hand value only if left-hand** is `null` or `undefined`.
 
@@ -395,7 +457,7 @@ console.log(c || 100); // 100 (because 0 is falsy)
 console.log(c ?? 100); // 0 (because 0 is not null/undefined)
 ```
 
-### 5. Optional Chaining (`?.`)
+### 8. Optional Chaining (`?.`)
 
 - Safely access **deep properties** without error.
 
@@ -491,29 +553,6 @@ console.log(x); // 8
 
 ---
 
-## Ternary Operator (condition ? value1 : value2)
-
-- Short form of `if...else`.
-
-- Returns **one of two values** based on a **condition**.
-
-👉 Example:
-
-```js
-let age = 18;
-let canVote = (age >= 18) ? "Yes" : "No";
-console.log(canVote); // "Yes"
-```
-
-## 🎯 Interview-style Q&A
-
-### Q2. What is the ternary operator in JavaScript?
-> 👉 A shorthand if...else that evaluates a condition and returns one of two values.
-
-### Q3. Can we use multiple (nested) ternary operators?
-> 👉 Yes, but avoid too many levels because it reduces readability. Use if...else for complex conditions.
-
----
 
 ## Type Conversion in JavaScript
 
