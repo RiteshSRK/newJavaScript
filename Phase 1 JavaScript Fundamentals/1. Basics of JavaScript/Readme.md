@@ -325,6 +325,8 @@ let b = null; // null
 | `/`      | Division               | `10 / 2` | `5`    |
 | `%`      | Modulus (remainder)    | `10 % 3` | `1`    |
 | `**`     | Exponentiation (power) | `2 ** 3` | `8`    |
+| `++`     | Increment              |          |        |
+| `--`     | Decrement              |          |        |
 
 👉 Example:
 
