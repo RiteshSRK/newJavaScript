@@ -367,6 +367,10 @@ score += 2; // score = 7
 | `!==`    | Strict not equal            | `5 !== "5"` | `true`  |
 | `==`     | Loose equal (only value)    | `5 == "5"`  | `true`  |
 | `!=`     | Loose not equal             | `5 != "5"`  | `false` |
+| `>`      | Greater Than                |             |         |
+| `<`      | Less Than                   |             |         |
+| `>=`     | Greater or Equal            |             |         |
+| `<=`     | Less or Equal               |             |         |
 
 👉 Example:
 
