@@ -20,11 +20,11 @@
 
 ## Variables in JavaScript (`var`, `let`, `const`)
 
-- `var`: Function scoped, can be **redeclared** and **updated**.
+- `var`: Function scoped, can be **redeclared** and **reassigned**.
 
-- `let`: Block scoped, can be **updated** but **not redeclared**.
+- `let`: Block scoped, can be **reassigned** but **not redeclared**.
 
-- `const`: Block scoped, **cannot be updated** or **redeclared**.
+- `const`: Block scoped, **cannot be reassigned** or **redeclared**.
 
 ### 1. `var`
 
