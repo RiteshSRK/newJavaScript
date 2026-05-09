@@ -20,6 +20,11 @@
 
 ## Variables in JavaScript (`var`, `let`, `const`)
 
+> A variable is like a container that holds data.  
+
+> They help us store, reuse, and update information in JavaScript — from simple values like
+numbers to complex data like arrays and objects.
+
 - `var`: Function scoped, can be **redeclared** and **reassigned**.
 
 - `let`: Block scoped, can be **reassigned** but **not redeclared**.
@@ -312,6 +317,9 @@ let b = null; // null
 ## JavaScript Operators (Important for Interviews)
 
 > Operators are symbols that perform operations on values/variables.
+
+> Operators do something to those values. 
+> Operands are the values.
 
 ### 1. Arithmetic Operators
 
