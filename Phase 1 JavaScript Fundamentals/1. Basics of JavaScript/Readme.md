@@ -170,7 +170,8 @@ let x = 10; // TDZ until this line executes
 
 1. **Primitive Types** (immutable, stored directly in memory)
 
-2. **Non-Primitive / Reference Types** (objects, arrays, functions)
+2. **Non-Primitive / Reference Types** (objects, arrays, functions, stored as memory references.
+)
 
 Here we’ll cover **all primitive types**:   
 👉 `number`, `string`, `boolean`, `null`, `undefined`, `symbol`, `bigint`
@@ -349,21 +350,34 @@ console.log(2 ** 4);   // 16
 
 ### 2. Assignment Operators
 
-> Assign values to variables.
+> Assignment operators are used to **assign values to variables**.  
+>Besides =, we have shorthand operators.
 
-```js
-= // assigns value
-+= // a += b => a = a + b
--= // a -= b
-*=, /=, %=
-```
+| Operator | Meaning           | Example   | Equivalent To | Result     |
+| -------- | ----------------- | --------- | ------------- | ---------- |
+| `=`      | Assign            | `x = 10`  | –             | `x = 10`   |
+| `+=`     | Add & assign      | `x += 5`  | `x = x + 5`   | `x = 15`   |
+| `-=`     | Subtract & assign | `x -= 3`  | `x = x - 3`   | `x = 7`    |
+| `*=`     | Multiply & assign | `x *= 2`  | `x = x * 2`   | `x = 20`   |
+| `/=`     | Divide & assign   | `x /= 2`  | `x = x / 2`   | `x = 5`    |
+| `%=`     | Modulus & assign  | `x %= 3`  | `x = x % 3`   | `x = 1`    |
+| `**=`    | Power & assign    | `x **= 3` | `x = x ** 3`  | `x = 1000` |
 
 👉 Example:
 
 ```js
-let score = 5;
-score += 2; // score = 7
+let x = 10;
+
+x += 5;   // 15
+x -= 3;   // 12
+x *= 2;   // 24
+x /= 4;   // 6
+x %= 4;   // 2
+x **= 3;  // 8
+
+console.log(x); // 8
 ```
+
 
 ### 3. Comparison Operators
 
@@ -488,22 +502,27 @@ console.log(user.contact?.phone); // undefined (no error)
 
 ---
 
-### 🔥 Summary Table
-
-| Operator | Category           | Example               | Output                 |
-| -------- | ------------------ | --------------------- | ---------------------- |
-| `+`      | Arithmetic         | `5 + 2`               | `7`                    |
-| `-`      | Arithmetic         | `5 - 2`               | `3`                    |
-| `*`      | Arithmetic         | `5 * 2`               | `10`                   |
-| `/`      | Arithmetic         | `5 / 2`               | `2.5`                  |
-| `%`      | Arithmetic         | `5 % 2`               | `1`                    |
-| `**`     | Arithmetic         | `2 ** 3`              | `8`                    |
-| `===`    | Comparison         | `5 === "5"`           | `false`                |
-| `!==`    | Comparison         | `5 !== "5"`           | `true`                 |
-| `&&`     | Logical AND        | `true && false`       | `false`                |
-| `\|\|`   | Logical OR         | `true \|\| false`     | `true`                 |
-| `??`     | Nullish Coalescing | `null ?? "Hi"`        | `"Hi"`                 |
-| `?.`     | Optional Chaining  | `user?.address?.city` | `undefined` if missing |
+### 🔥 Complete JavaScript Operators Table
+| S.No. | Operator Type         | Operators                               | Example                   |
+| ----- | --------------------- | --------------------------------------- | ------------------------- |
+| 1     | Arithmetic            | `+ , - , * , / , % , **`                | `5 + 10`                  |
+| 2     | Assignment            | `= , += , -= , *= , /= , %= , **=`      | `a += 15`                 |
+| 3     | Comparison            | `== , === , != , !== , > , < , >= , <=` | `5 < 10`                  |
+| 4     | Logical               | `&& , \|\| , ! `                        | `true && false`           |
+| 5     | Increment & Decrement | `++ , --`                               | `a++`                     |
+| 6     | Ternary (Conditional) | `? :`                                   | `age > 18 ? "Yes" : "No"` |
+| 7     | Bitwise               | `& , \| , ^ , ~ , << , >> , >>>`        | `5 & 1`                   |
+| 8     | Type                  | `typeof , instanceof`                   | `typeof "Hello"`          |
+| 9     | String                | `+ , +=`                                | `"Hello" + " World"`      |
+| 10    | Optional Chaining     | `?.`                                    | `user?.name`              |
+| 11    | Nullish Coalescing    | `??`                                    | `value ?? "default"`      |
+| 12    | Spread / Rest         | `...`                                   | `[...arr]`                |
+| 13    | Comma                 | `,`                                     | `(a=1, b=2)`              |
+| 14    | delete                | `delete`                                | `delete obj.name`         |
+| 15    | in                    | `in`                                    | `"name" in obj`           |
+| 16    | new                   | `new`                                   | `new Object()`            |
+| 17    | this                  | `this`                                  | `this.name`               |
+| 18    | void                  | `void`                                  | `void(0)`                 |
 
 ---
 
@@ -532,38 +551,6 @@ console.log(user.contact?.phone); // undefined (no error)
 - Use `??` when you want default values but still allow `0` or `""`.
 
 - Use `?.` for safe property access in APIs and objects.
-
----
-
-## Assignment Operators in JavaScript
-
-> Assignment operators are used to assign values to variables.  
->Besides =, we have shorthand operators.
-
-| Operator | Meaning           | Example   | Equivalent To | Result     |
-| -------- | ----------------- | --------- | ------------- | ---------- |
-| `=`      | Assign            | `x = 10`  | –             | `x = 10`   |
-| `+=`     | Add & assign      | `x += 5`  | `x = x + 5`   | `x = 15`   |
-| `-=`     | Subtract & assign | `x -= 3`  | `x = x - 3`   | `x = 7`    |
-| `*=`     | Multiply & assign | `x *= 2`  | `x = x * 2`   | `x = 20`   |
-| `/=`     | Divide & assign   | `x /= 2`  | `x = x / 2`   | `x = 5`    |
-| `%=`     | Modulus & assign  | `x %= 3`  | `x = x % 3`   | `x = 1`    |
-| `**=`    | Power & assign    | `x **= 3` | `x = x ** 3`  | `x = 1000` |
-
-👉 Example:
-
-```js
-let x = 10;
-
-x += 5;   // 15
-x -= 3;   // 12
-x *= 2;   // 24
-x /= 4;   // 6
-x %= 4;   // 2
-x **= 3;  // 8
-
-console.log(x); // 8
-```
 
 ---
 
