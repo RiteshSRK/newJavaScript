@@ -408,11 +408,11 @@ console.log(5 !== "5");  // true
 
 >Used for boolean logic.
 
-| Operator | Meaning                | Example           | Output                 |
-| -------- | ---------------------- | ----------------- | ---------------------- |
-| `&&`     | AND (all must be true) | `true && false`   | `false`                |
-| `\|\|`   | OR (at least one true) | `true \|\| false` | `true`                 |
-| `!`      | NOT (reverse)          | `!true`           | `false`                |
+| Operator | Meaning                  | Example           | Output                 |
+| -------- | ------------------------ | ----------------- | ---------------------- |
+| `&&`     | AND (both must be true)  | `true && true`    | `true`                 |
+| `\|\|`   | OR (at least one true)   | `true \|\| false` | `true`                 |
+| `!`      | NOT (reverse true/false) | `!true`           | `false`                |
 
 ⚠️  OR( `||` ) ke sthan pr Backslash likha hai, kyuki markdown me ye table ke liye use hota hai.
 
