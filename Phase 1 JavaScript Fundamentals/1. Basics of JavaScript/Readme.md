@@ -414,7 +414,7 @@ console.log(5 !== "5");  // true
 | `\|\|`   | OR (at least one true) | `true \|\| false` | `true`                 |
 | `!`      | NOT (reverse)          | `!true`           | `false`                |
 
-⚠️  OR( `||` ) ke sthan pr slash likha hai, kyuki markdown me ye table ke liye use hota hai.
+⚠️  OR( `||` ) ke sthan pr Backslash likha hai, kyuki markdown me ye table ke liye use hota hai.
 
 👉 Example:
 
@@ -521,8 +521,16 @@ console.log(user.contact?.phone); // undefined (no error)
 | 14    | delete                | `delete`                                | `delete obj.name`         |
 | 15    | in                    | `in`                                    | `"name" in obj`           |
 | 16    | new                   | `new`                                   | `new Object()`            |
-| 17    | this                  | `this`                                  | `this.name`               |
-| 18    | void                  | `void`                                  | `void(0)`                 |
+| 17    | void                  | `void`                                  | `void(0)`                 |
+
+### 🔥 Operator Precedence (Highest to Lowest)
+
+| Precedence | Operator Type | Operators   |
+| ---------- | ------------- | ----------- |
+| 1          | Grouping      | `( )`       |
+| 2          | Member Access | `.  []  ?.` |
+| 2          | Function Call | `()`        |
+
 
 ---
 
@@ -661,8 +669,14 @@ console.log(Boolean("")); // false
 console.log(Boolean("hi")); // true
 ```
 
-👉 Falsy Values in JS (convert to false):   
-`0, "" (empty string), null, undefined, NaN, false`
+### 👉 Falsy Values in JS (convert to false):  
+
+- `false`  
+- `0`  
+- `""` (empty string)  
+- `null`  
+- `undefined`  
+- `NaN`  
 
 Everything else → `true`.
 
