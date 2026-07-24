@@ -1,10 +1,10 @@
 ## Conditional Statements in JavaScript
 
-> Conditional statements allow code to make decisions based on conditions (true/false).
+> Conditional statements allow code to **make decisions based on conditions** (`true`/`false`).
 
-### 1. if Statement
+### 1. `if` Statement
 
-- Executes a block of code **if condition is true**.
+- Runs a block of code **if condition is true**.
 
 👉 Example:
 
@@ -15,9 +15,9 @@ if (age >= 18) {
 }
 ```
 
-### 2. if...else Statement
+### 2. `if...else` Statement
 
-> Runs one block if condition is true, otherwise another block.
+> Executes one block of code if the condition is true; otherwise, it runs the `else` block.
 
 👉 Example:
 
@@ -48,9 +48,9 @@ if (username === "admin") {
 
 ```
 
-### 3. if...else if...else Statement
+### 3. `if...else if...else` Statement
 
-- Allows checking multiple conditions in sequence.
+- Checks multiple conditions in sequence.
 
 - First true condition block executes, rest are skipped.
 
@@ -70,15 +70,15 @@ if (marks >= 90) {
 }
 ```
 
-### 4. switch Statement
+### 4. `switch` Statement
 
-- Useful when you need to compare one value against multiple options.
+- Used to compare one value against multiple possible options (cases).
 
-- Compares value with `case` labels.
+    - Compares value with `case` labels.
 
-- Uses `break` to stop execution, otherwise **fall-through** happens.
+    - Uses `break` to stop execution, otherwise **fall-through** happens.
 
-- `default` runs if no case matches.
+    - `default` runs if no case matches.
 
 👉 Example:
 
@@ -151,4 +151,3 @@ switch (signal) {
     console.log("Invalid signal color");
 }
 ```
-

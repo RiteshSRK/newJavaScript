@@ -2,14 +2,14 @@
 
 > Loops are used to repeat code multiple times until a condition is met.
 
-### 1. for Loop
+### 1. `for` Loop
 
-- Used when we know how many times we want to run the loop.
+- Repeats a block of code a specified number of times.
 
 👉 Syntax:
 
 ```js
-for (initialization; condition; update) {
+for (initialization; condition; increment/decrement) {
    // code block
 }
 ```
@@ -23,7 +23,7 @@ for (let i = 1; i <= 5; i++) {
 // Output: 1 2 3 4 5
 ```
 
-### 2. while Loop
+### 2. `while` Loop
 
 - Executes while a condition is true.
 
@@ -46,9 +46,9 @@ while (count < 5) {
 // while (true) { console.log("This will run forever"); }
 ```
 
-### 3. do...while Loop
+### 3. `do...while` Loop
 
-- Similar to `while`, but it runs at least once even if condition is false.
+- Similar to `while`, but it runs **at least once** even if condition is false.
 
 👉 Example:
 
@@ -62,7 +62,7 @@ do {
 // Output: Value: 6 (runs once)
 ```
 
-### 4. for...of Loop
+### 4. `for...of` Loop
 
 - Iterates over values of an iterable (Array, String, Map, Set).
 
@@ -93,7 +93,7 @@ for (const char of str) {
 }
 ```
 
-### 5. for...in Loop
+### 5. `for...in` Loop
 
 - Iterates over keys (property names) of an object.
 
