@@ -146,24 +146,7 @@ console.log(addElem);   //Output: []
 console.log(colors);    //Output: [ 'green', 'aqua', 'red', 'orange', 'pink', 'white' ]
 ```
 
-### 6. sort()
-📖 **Sorts the elements** of the array in place.
-
-```js
-let days = ["monday","sunday","wednesdaay","tuesday"]
-
-let sortElem = days.sort();
-
-console.log(sortElem);  //Output: [ 'monday', 'sunday', 'tuesday', 'wednesdaay' ]
-
-let numbers = [9,7,4,1,3,2,6,8]
-
-let sortNum = numbers.sort();
-
-console.log(sortNum);   //Output: [1, 2, 3, 4,6, 7, 8, 9]
-```
-
-### 7. reverse()
+### 6. reverse()
 
 📖 **Reverses the elements** of the array in place.
 
@@ -174,6 +157,82 @@ let res = cars.reverse();
 
 console.log(res);   //Output: [ 'tata', 'mahindra', 'bmw', 'audi' ]
 ```
+
+### 7. sort()
+📖 **Sorts the elements** of the array in place.
+
+```js
+let fruits = ["Banana", "Apple", "Mango"];
+
+fruits.sort();
+
+console.log(fruits);    //Output: ["Apple", "Banana", "Mango"]
+```
+
+**Reason:** Default `sort()` numbers ko strings ki tarah compare karta hai.
+
+```js
+// Number Ascending Order
+let numbers = [40, 100, 1, 5, 25, 10];
+
+numbers.sort((a, b) => a - b);
+
+console.log(numbers);   //Output: [1, 5, 10, 25, 40, 100]
+```
+
+```js
+//  Number Descending Order
+let numbers = [40, 100, 1, 5, 25, 10];
+
+numbers.sort((a, b) => b - a);
+
+console.log(numbers);   //Output:   [100, 40, 25, 10, 5, 1]
+```
+
+```js
+//  String Sort (Z-A)
+let names = ["Rahul", "Aman", "Vikas", "Deepak"];
+
+names.sort().reverse();
+
+console.log(names); //Output:   ["Vikas", "Rahul", "Deepak", "Aman"]
+```
+
+```js
+//  Sort Objects
+let students = [
+  { name: "Rahul", age: 22 },
+  { name: "Aman", age: 20 },
+  { name: "Vikas", age: 25 }
+];
+
+students.sort((a, b) => a.age - b.age);
+
+console.log(students);  
+
+//Output:
+[
+  { name: "Aman", age: 20 },
+  { name: "Rahul", age: 22 },
+  { name: "Vikas", age: 25 }
+]   
+```
+
+```js
+//  Sort by Name
+students.sort((a, b) => a.name.localeCompare(b.name));
+
+console.log(students);
+
+//Output:
+[
+  { name: "Aman", age: 20 },
+  { name: "Rahul", age: 22 },
+  { name: "Vikas", age: 25 }
+]
+```
+`localeCompare()` strings ko alphabetically compare karne ka recommended tarika hai.
+
 
 ### 8. fill(`value`, `start`, `end`):
 **Fills** the array with a **static value** from **start to end**.
