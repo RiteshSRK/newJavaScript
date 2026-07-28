@@ -255,7 +255,7 @@ console.log(arr2.fill(0, 1)); // [1, 0, 0, 0, 0]
 
 ---
 
-## Non-Mutating Methods (Do NOT change original array)
+## Non-Mutating Methods (Do NOT change original array) - return a new array
 > These methods **return a new array** or **value** **without modifying** the **original array**.
 
 ### 10. concat()
@@ -288,20 +288,7 @@ let res3 = cars.slice(-1);
 console.log(res3);  //Output: [ 'tata' ]
 ```
 
-### 12. join(`separator`)
-📖 **Joins** all elements of the **array into a string**.
-
-```js
-const fruits = ['apple', 'banana', 'orange'];
-const joinedFruits = fruits.join(' ');
-console.log(joinedFruits);  // Output: apple banana orange
-
-const numbers = [1, 2, 3, 4, 5];
-const joinedNumbers = numbers.join("/");
-console.log(joinedNumbers); // Output: 1/2/3/4/5
-```
-
-### 13. map()
+### 12. `map()`
 
 📖 Creates a **new array** by **applying a function to each element**.
 
@@ -353,7 +340,7 @@ console.log(newNum);    //Output: [ 12, 14, 16, 18, 20 ]
 
 ⚡ Interview Note: Returns new array, doesn’t modify original.
 
-### 14. filter()
+### 13. `filter()`
 
 📖 Returns a new array with elements that pass the given condition.
 
@@ -407,7 +394,52 @@ console.log(userbook2);
 console.log(userbook3);
 ```
 
-### 15. reduce(`callback`, `initialValue`)
+### 14. flat(`depth`)
+
+📖 Creates a **new array** by **flattening nested arrays** up to a **specified depth**.
+
+```js
+let arr = [1, 2, [3, 4, [5, 6],],];
+let flatArr = arr.flat();
+console.log(flatArr);   // Output: [1, 2, 3, 4, [ 5, 6]] 
+
+let numbers = [1, 2, [3, 4, [5, 6, [7, 8]]]];   //infinity
+let res = numbers.flat(3);
+console.log(res);   // Output: [1, 2, 3, 4, 5, 6, 7, 8]
+```
+
+### 15. flatMap(callback)
+
+📖 Maps each element using a mapping function, then flattens the result into a new array.
+
+---
+
+- `toSorted()`
+- `toReversed()`
+- `toSpliced()`
+- `Array.from()`
+- `Array.of()`
+
+---
+
+## 📦 Value Return karte hai
+
+Ye array nhi, koi value return karte hai.
+
+### 16. join(`separator`)
+📖 **Joins** all elements of the **array into a string**.
+
+```js
+const fruits = ['apple', 'banana', 'orange'];
+const joinedFruits = fruits.join(' ');
+console.log(joinedFruits);  // Output: apple banana orange
+
+const numbers = [1, 2, 3, 4, 5];
+const joinedNumbers = numbers.join("/");
+console.log(joinedNumbers); // Output: 1/2/3/4/5
+```
+
+### 17. reduce(`callback`, `initialValue`)
 📖 Reduces array to a single value (like sum, product).
 > **Executes** a **reducer** function on **each element** of the array, **resulting** in a **single output** value.
 
@@ -439,7 +471,7 @@ const flattened = arrays.reduce((accumulator, currentValue) => {
 console.log(flattened);//Output: [1, 2, 3, 4, 5, 6 ]
 ```
 
-### 16. forEach()
+### 18. forEach()
 
 📖 Executes a function for each array element.
 
@@ -486,7 +518,7 @@ data.forEach( (stu) =>{
 });
 ```
 
-### 17. find()
+### 19. find()
 
 📖 Returns the **first element** that matches the condition.
 
@@ -502,7 +534,7 @@ const people = [
   console.log(result);  // Output: { name: 'John', age: 25 }
 ```
 
-### 18. includes(`element`, `fromIndex`)
+### 20. includes(`element`, `fromIndex`)
 
 📖 Checks if an array **contains a certain element**.
 
@@ -521,7 +553,7 @@ console.log(arr.includes(2)); // true
 console.log(arr.includes(5)); // false
 ```
 
-### 19. indexOf()
+### 21. indexOf()
 
 📖 Returns the **first index** of an element (or -1 if not found).
 
@@ -533,24 +565,6 @@ let car = cars.indexOf('tata');
 
 console.log(car);//Output: 3
 ```
-
-### 20. flat(`depth`)
-
-📖 Creates a **new array** by **flattening nested arrays** up to a **specified depth**.
-
-```js
-let arr = [1, 2, [3, 4, [5, 6],],];
-let flatArr = arr.flat();
-console.log(flatArr);   // Output: [1, 2, 3, 4, [ 5, 6]] 
-
-let numbers = [1, 2, [3, 4, [5, 6, [7, 8]]]];   //infinity
-let res = numbers.flat(3);
-console.log(res);   // Output: [1, 2, 3, 4, 5, 6, 7, 8]
-```
-
-### 21. flatMap(callback)
-
-📖 Maps each element using a mapping function, then flattens the result into a new array.
 
 ### 22. some()
 
@@ -591,7 +605,19 @@ let below = arr.every( (el) => {
 console.log(below);     //false
 ```
 
-### 24. entries()
+### 24. toString()
+
+Converts an array into a comma-separated string.
+
+```js
+const arr = ["Hello", 100, true];
+console.log(arr.toString());  
+// Output: "Hello,100,true"
+```
+
+---
+
+### 25. entries()
 
 Returns a **new Array Iterator object** that **contains** the **key/value pairs** for each index in the array.
 
@@ -607,23 +633,13 @@ console.log(entries.next().value); // Output: [1, 2]
 console.log(entries.next().value); // Output: [2, 3]
 ```
 
-### 25. keys()
+### 26. keys()
 
 Returns a **new Array Iterator object** that **contains** the **keys** for **each index** in the array.
 
 ### 27. values()
 
 Returns a **new Array Iterator object** that **contains** the **values** for **each index** in the array.
-
-### 28. toString()
-
-Converts an array into a comma-separated string.
-
-```js
-const arr = ["Hello", 100, true];
-console.log(arr.toString());  
-// Output: "Hello,100,true"
-```
 
 ---
 
