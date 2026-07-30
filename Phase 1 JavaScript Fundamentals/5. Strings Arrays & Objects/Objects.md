@@ -332,3 +332,13 @@ let a = 5, b = 10;
 [a, b] = [b, a];
 console.log(a, b); // 10 5
 ```
+
+---
+
+## Shallow Copy vs Deep Copy (JavaScript)
+
+### Shallow Copy 
+
+📖 **Shallow copy copies only the first-level properties**.  
+If the **object contains nested objects or arrays**, it copies their **references**, not the actual data.
+
