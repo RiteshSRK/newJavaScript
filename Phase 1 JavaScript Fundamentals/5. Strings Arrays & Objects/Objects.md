@@ -342,3 +342,74 @@ console.log(a, b); // 10 5
 📖 **Shallow copy copies only the first-level properties**.  
 If the **object contains nested objects or arrays**, it copies their **references**, not the actual data.
 
+```js
+const user1 = {
+  name: "Rahul",
+  address: {
+    city: "Delhi"
+  }
+};
+
+const user2 = { ...user1 };
+
+user2.name = "Amit";
+
+console.log(user1.name);    //Output: Rahul
+console.log(user2.name);    //Output: Amit
+
+user2.address.city = "Mumbai";
+
+// Because address is still shared.
+console.log(user1.address.city);    //Output: Mumbai
+console.log(user2.address.city);    //Output: Mumbai
+```
+
+### Deep Copy
+
+A deep copy duplicates **everything**, including nested objects and arrays.
+
+```js
+const user1 = {
+  name: "Rahul",
+  address: {
+    city: "Delhi"
+  }
+};
+
+// 1. structuredClone (modern, built-in, recommended)
+const deep1 = structuredClone(user1);
+
+console.log(deep1);
+
+deep1.address.city = "Prayagraj";
+
+console.log(deep1);
+```
+
+```js
+const user1 = {
+  name: "Rahul",
+  address: {
+    city: "Delhi"
+  }
+};
+
+// 2. JSON methods (older, has limitations)
+const deep2 = JSON.parse(JSON.stringify(user1));
+
+console.log(deep2);
+
+deep2.address.city = "Varanasi";
+
+console.log(deep2);
+```
+
+⚡ Main Limitations of `JSON.parse(JSON.stringify())`?
+
+It removes **functions**.  
+It removes `undefined` values.  
+It converts `Date` **objects into strings**.  
+It doesn't correctly copy `Map` and `Set`.  
+It fails with **circular references**.  
+It doesn't support `BigInt`.
+
