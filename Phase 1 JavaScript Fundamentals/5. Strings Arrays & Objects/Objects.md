@@ -141,7 +141,7 @@ for (let key in student) {
 Object.keys(student).forEach(k => console.log(k, student[k]));
 ```
 
-## `Object.entries()`, `Object.keys()`, `Object.values()`
+## `Object.keys()`, `Object.values()`, `Object.entries()`
 
 ```js
 let person = { name: "Ritesh", age: 25 };
@@ -412,4 +412,6 @@ It converts `Date` **objects into strings**.
 It doesn't correctly copy `Map` and `Set`.  
 It fails with **circular references**.  
 It doesn't support `BigInt`.
+
+---
 
