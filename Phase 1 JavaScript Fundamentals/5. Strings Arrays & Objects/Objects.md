@@ -415,3 +415,4 @@ It doesn't support `BigInt`.
 
 ---
 
+1. Object.freeze()
