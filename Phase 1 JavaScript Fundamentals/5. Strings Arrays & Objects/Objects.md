@@ -415,4 +415,32 @@ It doesn't support `BigInt`.
 
 ---
 
-1. Object.freeze()
+### 🌲 `Object.freeze()` in JavaScript
+
+`Object.freeze()` is a built-in JavaScript method, It make the object immutable (read-only).
+
+- Then **do not add** new property.
+- **Do not change** Existing property.
+- **Do not Delete** Existing property.
+
+```js
+const product = {
+    name: "Chair",
+    color: "Red",
+    material: "fibre",
+    price: 450,
+    category: {
+        sitting: 2,
+        maxWaight: "400KG",
+    },
+};
+
+Object.freeze(product);
+
+product.color = "green";  // ❌ Not allowed
+product.some = 350;       // ❌ Not allowed
+
+delete product.color;     // ❌ Not allowed
+
+console.log(product);
+```
