@@ -444,3 +444,34 @@ delete product.color;     // ❌ Not allowed
 
 console.log(product);
 ```
+
+### 🌲`Object.seal()` in JavaScript
+
+`Object.seal()` is a built-in JavaScript method that **seals an object**.
+
+- Only update values of existing properties.
+
+```js
+const product = {
+    name: "Chair",
+    color: "Red",
+    material: "fibre",
+    price: 450,
+    category: {
+        sitting: 2,
+        maxWaight: "400KG",
+    },
+};
+
+Object.seal(product);
+
+product.color = "green";
+product.some = 350;
+
+delete product.color;
+
+console.log(product);
+```
+
+### 🌲property Descriptors
+
